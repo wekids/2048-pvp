@@ -1,5 +1,5 @@
-<h1>{{ hello }}</h1>
+<h1 (click)="resetBoard()">{{ resetButtonText }}</h1>
 <span *ngFor="let grid of grids">
-  <span>{{grid.number == null ? 0 : grid.number}}
+  <span>{{grid.number == null ? 0 : grid.number}}</span>
   <div *ngIf="isGridRightMost(grid)"></div>
 </span>
