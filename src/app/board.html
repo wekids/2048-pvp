@@ -1,0 +1,5 @@
+<h1>{{ hello }}</h1>
+<span *ngFor="let grid of grids">
+  <span>{{grid.number == null ? 0 : grid.number}}
+  <div *ngIf="isGridRightMost(grid)"></div>
+</span>

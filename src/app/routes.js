@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {HelloComponent} from './hello';
+import {BoardComponent} from './board';
 
 @Component({
-  selector: 'fountain-root',
+  selector: 'game-root',
   template: '<router-outlet></router-outlet>'
 })
 export class RootComponent {}
@@ -11,7 +11,7 @@ export class RootComponent {}
 export const routes = [
   {
     path: '',
-    component: HelloComponent
+    component: BoardComponent
   }
 ];
 

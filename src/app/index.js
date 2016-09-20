@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {routing, RootComponent} from './routes';
 
-import {HelloComponent} from './hello';
+import {BoardComponent} from './board';
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import {HelloComponent} from './hello';
   ],
   declarations: [
     RootComponent,
-    HelloComponent
+    BoardComponent
   ],
   bootstrap: [RootComponent]
 })
