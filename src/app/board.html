@@ -1,5 +1,11 @@
 <h1 (click)="resetBoard()">{{ resetButtonText }}</h1>
-<span *ngFor="let grid of grids">
-  <span>{{grid.number == null ? 0 : grid.number}}</span>
-  <div *ngIf="isGridRightMost(grid)"></div>
-</span>
+<div (click)="move(-1, 0)">left</div>
+<div (click)="move(0, -1)">up</div>
+<div (click)="move(0, 1)">down</div>
+<div (click)="move(1, 0)">right</div>
+<p>
+  <span *ngFor="let grid of grids">
+    <span>{{grid.number == null ? 0 : grid.number}}</span>
+    <div *ngIf="isGridRightMost(grid)"></div>
+  </span>
+</p>
