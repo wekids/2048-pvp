@@ -30,16 +30,21 @@ export class BoardService {
     board.grids.forEach((grid) => {
       grid.number = null;
     });
-    let randomIds = this.getRandomIds(2, X_LENGTH * Y_LENGTH);
+    this.addTiles(board.grids, 2);
+  }
+
+  addTiles(grids, num) {
+    let randomIds = this.getRandomEmptyGridIds(grids, num, X_LENGTH * Y_LENGTH);
     randomIds.forEach((randomId) => {
-      board.grids[randomId].number = 2;
+      grids[randomId].number = 2;
     });
   }
 
-  getRandomIds(num, max) {
+  getRandomEmptyGridIds(grids, num, max) {
     let result = new Set();
     while(result.size < num) {
-      result.add(Math.floor(Math.random() * max));
+      let randomId = Math.floor(Math.random() * max);
+      if (grids[randomId].isEmpty()) result.add(randomId);
     }
     return Array.from(result);
   }
@@ -58,16 +63,17 @@ export class BoardService {
           gridAfterMove.number *= 2;
           gridToMove.number = null;
           break;
+        } else {
+          break;
         }
       }
     });
+    this.addTiles(grids, 1);
   }
 
   isTileGoingOutsideBoard(grid: Grid, xDirection: number, yDirection: number) {
     let x = grid.getX() + xDirection;
     let y = grid.getY() + yDirection;
-    console.log(x);
-    console.log(y);
     if (x < 0 || x >= X_LENGTH || y < 0 || y >= Y_LENGTH) return true;
     else return false;
   }
